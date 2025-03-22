@@ -1,4 +1,7 @@
 // 导入所需模块
+// 加载环境变量（本地开发时使用）
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -14,8 +17,8 @@ app.use(express.json()); // 解析JSON请求体
 app.use(express.static(path.join(__dirname))); // 提供静态文件
 
 // 火山方舟API配置
-const ARK_API_KEY = 'e0ffb4b4-23cf-48e0-bd57-f7f4def430a0';
-const ARK_API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
+const ARK_API_KEY = process.env.ARK_API_KEY || 'your-api-key';
+const ARK_API_URL = process.env.ARK_API_URL || 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
 
 // 处理聊天请求的路由
 app.post('/api/chat', async (req, res) => {

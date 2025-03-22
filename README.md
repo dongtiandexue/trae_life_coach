@@ -33,3 +33,23 @@
 - 后端使用Node.js和Express框架
 - 通过后端代理转发请求到火山方舟DeepSeek R1 API
 - 设置合理的超时时间和错误处理机制
+- 使用环境变量管理API密钥和URL，支持Vercel部署
+
+## 环境变量配置
+
+### 本地开发
+1. 在项目根目录创建`.env`文件（不要提交到版本控制）
+2. 参考`.env.example`文件添加必要的环境变量：
+   ```
+   ARK_API_KEY=your-actual-api-key
+   ARK_API_URL=https://ark.cn-beijing.volces.com/api/v3/chat/completions
+   ```
+3. 安装dotenv包：`npm install dotenv`
+4. 在server.js顶部添加：`require('dotenv').config();`
+
+### Vercel部署
+1. 在Vercel项目设置中，找到「Environment Variables」部分
+2. 添加以下环境变量：
+   - `ARK_API_KEY`: 你的火山方舟API密钥
+   - `ARK_API_URL`: 火山方舟API的URL（默认为https://ark.cn-beijing.volces.com/api/v3/chat/completions）
+3. 保存设置并重新部署项目
