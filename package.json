@@ -1,0 +1,17 @@
+{
+  "name": "life-coach-ai",
+  "version": "1.0.0",
+  "description": "基于火山方舟DeepSeek R1 API的Life Coach AI网站",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.6.9",
+    "path": "^0.12.7"
+  },
+  "author": "",
+  "license": "MIT"
+}
